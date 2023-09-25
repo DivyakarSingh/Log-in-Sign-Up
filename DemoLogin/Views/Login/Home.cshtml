@@ -1,0 +1,8 @@
+﻿@model IEnumerable<DemoLogin.Models.Emplyee>
+@{
+    ViewBag.Title = "Home";
+}
+
+<h1>Wecome to home page @Session["user"]</h1>
+@Html.ActionLink("LogOut", "Logout", "Login", new {@class="btn btn-dark"})
+

@@ -1,0 +1,52 @@
+﻿@model DemoLogin.Models.SignUp
+
+
+@{
+    ViewBag.Title = "SignUp";
+}
+
+
+@using (@Html.BeginForm())
+{
+    <div>
+        <h2>SignUp:</h2>
+        <div>
+            @Html.LabelFor(model => model.Name) : &nbsp;
+            @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+        </div>
+        <div>
+            @Html.LabelFor(model => model.Email) : &nbsp;
+            @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+        </div>
+        <div>
+            @Html.LabelFor(model => model.PhoneNumber) : &nbsp;
+            @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })<br />
+        </div>
+        <div>
+            @Html.LabelFor(model => model.Gender) : &nbsp;
+            @Html.Label("Male") @Html.RadioButton("Gender", "Male", true)
+            @Html.Label("Female") @Html.RadioButton("Gender", "Female")
+            @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })<br />
+        </div>
+        <div>
+            <br />
+            @Html.LabelFor(model => model.Password) : &nbsp;
+            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+        </div>
+        <div>
+            @Html.LabelFor(model => model.ConfirmPassword) : &nbsp;
+            @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+        </div>
+        <br />
+        @ViewBag.ErrorMessege
+        <input type="submit" value="Summit" class="form-control btn btn-primary" />
+        @Html.Raw(ViewData["SuccessMessage"])
+    </div>
+}
+
+
